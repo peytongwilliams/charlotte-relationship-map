@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Audience &amp; Relationship Map: Charlotte</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f4a44'/%3E%3Ccircle cx='11' cy='12' r='4' fill='%23f3c9a8'/%3E%3Ccircle cx='21' cy='14' r='4' fill='%23bfe0da'/%3E%3Ccircle cx='15' cy='22' r='4' fill='%23f0b9cc'/%3E%3C/svg%3E">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="A named map of the builders, CPAs, estate attorneys and communities around Charlotte that our practice wants to know.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css" rel="stylesheet" integrity="sha384-uTttxo/aOKbdE5RlD/SPzSDoDmNvGlUYPjONi2MN/b7c9HPSvW07OIuyP7uL6jxK" crossorigin="anonymous">
+<link rel="stylesheet" href="./base.css">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<a class="skip-link" href="#results">Skip to the list</a>
+
+<div class="app" id="app">
+
+  <aside class="panel" aria-label="Directory">
+    <header class="masthead">
+      <p class="eyebrow">Building Something Worth Knowing <span aria-hidden="true">/</span> 03</p>
+      <h1>Audience &amp; Relationship Map</h1>
+      <p class="dek">The builders, CPAs, estate attorneys and communities around Charlotte that we want to know, and want to know us.</p>
+      <div class="masthead-actions">
+        <button class="btn btn-quiet" id="aboutBtn" type="button">How to read this</button>
+        <button class="btn btn-quiet" id="csvBtn" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+          <span id="csvLabel">Download CSV</span>
+        </button>
+      </div>
+    </header>
+
+    <section class="controls" aria-label="Filters">
+      <div class="search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <label class="sr-only" for="q">Search names, people, places</label>
+        <input id="q" type="search" placeholder="Search a person, firm or town" autocomplete="off" spellcheck="false">
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Category"></div>
+      <div class="area-row">
+        <label for="area">Area</label>
+        <select id="area"></select>
+        <p class="count" id="count" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <div class="results" id="results" tabindex="-1"></div>
+
+    <article class="detail" id="detail" hidden aria-live="polite"></article>
+  </aside>
+
+  <main class="map-wrap" aria-label="Map of the Charlotte metro">
+    <div id="map"></div>
+    <div class="legend" id="legend" aria-hidden="true"></div>
+    <button class="btn btn-map" id="resetBtn" type="button" title="Show the whole metro">Whole metro</button>
+    <div class="map-fallback" id="mapFallback" hidden>
+      <p><strong>The map could not load.</strong> The full directory is still available in the list.</p>
+    </div>
+  </main>
+</div>
+
+<dialog id="about" aria-labelledby="aboutTitle">
+  <form method="dialog" class="about-inner">
+    <header>
+      <h2 id="aboutTitle">How to read this map</h2>
+      <button class="icon-btn" aria-label="Close" value="close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </header>
+    <div class="about-body" id="aboutBody"></div>
+  </form>
+</dialog>
+
+<script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js" integrity="sha384-5+cfbwT0iiub6VsQAdn6yz16nr6sDiQoHx6tm4O8OVYXHYOxcffFmCJBL0dgdvGp" crossorigin="anonymous"></script>
+<script src="./data.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>
